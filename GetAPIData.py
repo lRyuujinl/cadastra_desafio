@@ -1,11 +1,17 @@
 import requests
 import psycopg2
 import datetime
-from config import DB_CONFIG, API_URL, PARAMS
+import time
+from config import DB_CONFIG, API_URL, PARAMS, API_CALL_DELAY
 
 def API_get_assets():
-    """Request da API """
     try:
+
+        # Controlador simples mensal para chamada da API (Mensal)
+        print(f"Tempo de espera de {API_CALL_DELAY} segundos até a proxima chamada...")
+        time.sleep(API_CALL_DELAY)
+
+        #Pegar dados da API
         response = requests.get(API_URL, params=PARAMS)
         response.raise_for_status()  # Tratamento de Erros
         
@@ -29,11 +35,12 @@ def save_to_database(crypto_data):
         conn = psycopg2.connect(**DB_CONFIG)
         cur = conn.cursor()
         
-        # Current timestamp
+        # Coluna a ser usada como controlador no SCD da tabela historica
         current_time = datetime.datetime.now()
         
         # UPSERT (Para não correr o risco de salvar duplicados)
         for asset in crypto_data:
+
             # Converte dados dtype object do Json nos tipos correspondentes do SQL 
             asset_id = asset.get('id')
             rank = int(asset.get('rank', 0))
