@@ -39,19 +39,24 @@ if __name__ == "__main__":
         sys.exit(1)
     
     # 
-   tentativa = pipeline()
+   primeira_tentativa = pipeline()
    
-   if not tentativa:
+   if not primeira_tentativa:
         print("Erro ao tentar executar a pipeline, cancelando a operação")
         sys.exit(1)    
     
-    # Scheduler para a necessidade de atualização recorrente dos dados - Apenas descomentar o bloco de codigo abaixo
+    # Scheduler para a necessidade de atualização recorrente dos dados
+        schedule.every(1).hour.do(pipeline)
+        print("Scheduler programado para rodar a cada hora. Para cancelar, use Ctrl+C")
+        try:
+            while True:
+                schedule.run_pending()
+            
+            #Checagem de falha
+            if job.last_run is not None and not job.last_run_success:
+                print("Pipeline agendada falhou, saindo da aplicação!")
+                sys.exit(1)
 
-    # schedule.every(1).hour.do(pipeline)
-    # print("Scheduled to run hourly. Press Ctrl+C to exit.")
-    # try:
-    #     while True:
-    #         schedule.run_pending()
-    #         time.sleep(60)
-    # except KeyboardInterrupt:
-    #     print("Pipeline stopped")
+            time.sleep(60)    
+        except KeyboardInterrupt:
+            print("Pipeline interrompida")
