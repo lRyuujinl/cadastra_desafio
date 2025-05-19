@@ -21,6 +21,12 @@ Rodar no Prompt de comando do Windows:
 py -m venv venv
 ```
 
+E ativar o ambiente virtual:
+
+```
+venv\Scripts\activate
+```
+
 ## 3. Instalar as dependencias para poder usar as bibliotecas no script
 
 Rodar no Terminal: 
