@@ -1,7 +1,5 @@
 # cadastra_desafio
 
-# cadastra_desafio
-
 Para utilizar o codigo nesse repositório, serão necessários os seguintes passos:
 --------------------------------------------------------------------------------------------------------------------------------------
 1. Clonar o repositorio para uma pasta chamado CRYPTOMARKET
