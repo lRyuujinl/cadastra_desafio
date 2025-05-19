@@ -69,7 +69,7 @@ API_CALL_DELAY=1
 
 No terminal dentro do diretorio do projeto, executar:
 ```
-python db_setup.py
+py db_setup.py
 ```
 Serão criadas duas tabelas na modelagem de dados pensada:
 Tabela 1: `assets` - Guarda dados atuais e mais recentes de cada criptomoeda do mercado
@@ -82,13 +82,13 @@ Tabela 2: `asset_history` - Guarda o historico dos dados de preço e dados do me
 
 Rodar no terminal o seguinte comando:
 ```
-python main.py
+py main.py
 ```
 Esse é o comando principal da aplicação, que fará a chamada da API e armazenar o resultado nas duas tabelas do banco de dados criado e que estará configurado por padrão a rodar a cada hora.
 
 Mas é possível optar também pela execução manual da chamada da API sem o scheduler com o comando:
 ```
-pyhton GetAPIData.py
+py GetAPIData.py
 ```
 
 
