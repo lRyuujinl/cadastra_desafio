@@ -18,7 +18,7 @@ Os arquivos que serão clonados são definidos como:\
 
 Rodar no Prompt de comando do Windows:
 ```
-python -m venv venv
+py -m venv venv
 ```
 ```
 venv\Scripts\activate
