@@ -31,7 +31,7 @@ venv\Scripts\activate
 
 Rodar no Terminal: 
 ```
-pip install -r requirements.txt
+pip install -r dependencias.txt
 ```
 
 
