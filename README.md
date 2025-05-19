@@ -20,15 +20,6 @@ Rodar no Prompt de comando do Windows:
 ```
 py -m venv venv
 ```
-```
-venv\Scripts\activate
-```
-
-Ou se usar Mac/Linux:
-```
-source venv/bin/activate
-```
-
 
 ## 3. Instalar as dependencias para poder usar as bibliotecas no script
 
